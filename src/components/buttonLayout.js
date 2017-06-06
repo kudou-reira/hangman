@@ -4,9 +4,10 @@ import {Button, ButtonToolbar} from 'react-bootstrap';
 import {enterA, restore} from '../actions';
 //use this component to pass in button value
 //HOWEVER, IN THIS COMPONENT, ON BUTTON CLICK WILL CHECK THE ARRAY
-//use connect to bring in the array type and then return the new array if there are matches
+//use connect to bring in the array set in renderWord and then return the new array if there are matches
 //update array using action creator
-//one function for 26 letters, checkLetters() or whatever
+//one function for 26 letters in THIS component, checkLetters() or whatever
+//also add a function in this component to check if you won
 //this.props.updateArray(array) with updated array or something
 
 class ButtonLayout extends Component {
