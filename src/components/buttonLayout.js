@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Button, ButtonToolbar} from 'react-bootstrap';
-import {enterLetter, emptyArrUpdate, correctArrUpdate} from '../actions';
+import {enterLetter, emptyArrUpdate, correctArrUpdate, noSpaceUpdate} from '../actions';
 import axios from 'axios';
 import RenderSpaces from './renderSpaces';
+import DrawHangman from './drawHangman';
 //use this component to pass in button value
 //HOWEVER, IN THIS COMPONENT, ON BUTTON CLICK WILL CHECK THE ARRAY
 //use connect to bring in the array set in renderWord and then return the new array if there are matches
@@ -56,7 +57,9 @@ class ButtonLayout extends Component {
         death: 0,
         partOfSpeech: '',
         definition: '',
-        attributionText: ''
+        attributionText: '',
+        winCon: false,
+        renderEmpty: true
         
     }
 
@@ -75,6 +78,18 @@ class ButtonLayout extends Component {
         .then(response => {
           
           this.setState({initialWord: response.data[0].word.toLowerCase()})
+          
+          axios.get("http://api.wordnik.com:80/v4/word.json/" + this.state.initialWord + "/definitions?limit=200&includeRelated=true&useCanonical=false&includeTags=false&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
+          .then(response => {
+            this.setState(
+                {
+                    partOfSpeech: response.data[0].partOfSpeech, 
+                    definition: response.data[0].text,
+                    attributionText: response.data[0].attributionText
+                }
+            )
+          });
+          
           var splitWord = this.state.initialWord
 
           var testHold = [];
@@ -147,18 +162,12 @@ class ButtonLayout extends Component {
                   xDisable: false,
                   yDisable: false,
                   zDisable: false,
-                  winCon: false
+                  winCon: false,
+                  renderEmpty: true
               }
           );
           
-          axios.get("http://api.wordnik.com:80/v4/word.json/" + this.state.initialWord + "/definitions?limit=200&includeRelated=true&useCanonical=false&includeTags=false&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
-          .then(response => {
-            this.setState(
-                {partOfSpeech: response.data[0].partOfSpeech, 
-                definition: response.data[0].text,
-                attributionText: response.data[0].attributionText}
-                         )
-          });
+          
       })     
   }
 
@@ -349,10 +358,12 @@ class ButtonLayout extends Component {
       
       var temp = this.props.emptyArr;
       var temp2 = this.props.correctArr;
+      var temp3 = this.props.emptyArr;
       
       for(var i = 0; i < this.props.correctArr.length; i++){
           if(this.props.correctArr[i] === letter){
               temp[i] = letter + " ";
+              temp3[i] = letter
           }
       }
       
@@ -360,10 +371,11 @@ class ButtonLayout extends Component {
           this.setState({counter: this.state.counter-1, death: this.state.death+1});
       }
       
-      console.log(temp2);
       this.props.emptyArrUpdate(temp);
       
-      console.log("this is from buttonLayout " + this.props.emptyArr);
+      if(temp3.join('') === temp2.join('')){
+          this.setWin();
+      }
   }
 
     
@@ -383,8 +395,6 @@ class ButtonLayout extends Component {
   }
 
   getDefinition() {
-      
-      
       return(
       
         <div className = "leftFormat">
@@ -394,9 +404,82 @@ class ButtonLayout extends Component {
         </div>
       )
   }
+
+    
+  setWin(){
+      this.setState({
+          counter: 0,
+          aDisable: true,
+          bDisable: true,
+          cDisable: true,
+          dDisable: true,
+          eDisable: true,
+          fDisable: true,
+          gDisable: true,
+          hDisable: true,
+          iDisable: true,
+          jDisable: true,
+          kDisable: true,
+          lDisable: true,
+          mDisable: true,
+          nDisable: true,
+          oDisable: true,
+          pDisable: true,
+          qDisable: true,
+          rDisable: true,
+          sDisable: true,
+          tDisable: true,
+          uDisable: true,
+          vDisable: true,
+          wDisable: true,
+          xDisable: true,
+          yDisable: true,
+          zDisable: true,
+          winCon: true,
+          renderEmpty: false
+      });
+  }
+
+  winMessage(){
+      if(this.state.winCon){
+          return(
+            <h3>Congratulations! You won :D!!!</h3>
+          )
+      }
+  
+  }
     
   forceInitialWord(){
-      this.setState({counter: 0});
+      this.setState({
+          counter: 0,
+          aDisable: true,
+          bDisable: true,
+          cDisable: true,
+          dDisable: true,
+          eDisable: true,
+          fDisable: true,
+          gDisable: true,
+          hDisable: true,
+          iDisable: true,
+          jDisable: true,
+          kDisable: true,
+          lDisable: true,
+          mDisable: true,
+          nDisable: true,
+          oDisable: true,
+          pDisable: true,
+          qDisable: true,
+          rDisable: true,
+          sDisable: true,
+          tDisable: true,
+          uDisable: true,
+          vDisable: true,
+          wDisable: true,
+          xDisable: true,
+          yDisable: true,
+          zDisable: true,
+          renderEmpty: false
+      });
   }
     
   render() {
@@ -441,7 +524,10 @@ class ButtonLayout extends Component {
     
         <div className = 'container3'>
             {this.renderInitialWord()}
-            <RenderSpaces emptyArr = {this.state.renderArray} correctArr = {this.state.correctArray} />
+            <div className = "spaceOut">
+                {this.winMessage()}  
+            </div>
+            {this.state.renderEmpty ? <RenderSpaces emptyArr = {this.state.renderArray} correctArr = {this.state.correctArray} /> : null}
             <div className  = "spaceOut">
                 <Button style = {{width:140}} onClick = {this.fetchWord.bind(this)}>Play again?</Button>
                 <Button style = {{width:140}} onClick = {this.forceInitialWord.bind(this)}>Give Up?</Button>
@@ -449,7 +535,10 @@ class ButtonLayout extends Component {
             
             <div className = 'container3'>
                 <h2>You have {this.state.counter} lives remaining!</h2>
+                <DrawHangman counter = {this.state.counter} />
             </div>
+      
+                
         </div>
       </div>
     );
@@ -458,13 +547,13 @@ class ButtonLayout extends Component {
 
 const mapStateToProps = (state) => {
     
-    const {currentLetter, emptyArr, correctArr} = state.word;
-    return {currentLetter, emptyArr, correctArr};
+    const {currentLetter, emptyArr, correctArr, noSpaceArr} = state.word;
+    return {currentLetter, emptyArr, correctArr, noSpaceArr};
 
 };
 
 
-export default connect (mapStateToProps, {enterLetter, emptyArrUpdate, correctArrUpdate})(ButtonLayout);
+export default connect (mapStateToProps, {enterLetter, emptyArrUpdate, correctArrUpdate, noSpaceUpdate})(ButtonLayout);
 
 
 

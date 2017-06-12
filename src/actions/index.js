@@ -1,4 +1,4 @@
-import {ENTER_LETTER, RESET, EMPTY_ARR, CORRECT_ARR} from './types';
+import {ENTER_LETTER, RESET, EMPTY_ARR, CORRECT_ARR, NO_SPACE} from './types';
 
 export const emptyArrUpdate = (emptyArr) => {
     
@@ -16,6 +16,15 @@ export const correctArrUpdate = (correctArr) => {
     }
 }
 
+export const noSpaceUpdate = (noSpaceArr) => {
+
+    return {
+        type: NO_SPACE,
+        payload: noSpaceArr
+    }
+
+}
+
 export const enterLetter = (text) => {
 
     return {
@@ -24,6 +33,8 @@ export const enterLetter = (text) => {
     }
 
 }
+
+
 
 
 export const restore = () => {
