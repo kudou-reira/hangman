@@ -8,9 +8,9 @@ import GameStart from './components/gameStart';
 const App = () => {
   return (
     <div>
-      <h3 className="gameTitle">
+      <h1 className="gameTitle">
         React Hangman
-      </h3>
+      </h1>
       <GameStart />
     </div>
   );

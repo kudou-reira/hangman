@@ -1,13 +1,30 @@
-import {A_CHANGE, RESET} from './types';
+import {ENTER_LETTER, RESET, EMPTY_ARR, CORRECT_ARR} from './types';
 
-export const enterA = (text) => {
+export const emptyArrUpdate = (emptyArr) => {
+    
+    return {
+        type: EMPTY_ARR,
+        payload: emptyArr
+    }
+}
+
+export const correctArrUpdate = (correctArr) => {
+    
+    return {
+        type: CORRECT_ARR,
+        payload: correctArr
+    }
+}
+
+export const enterLetter = (text) => {
 
     return {
-        type: A_CHANGE,
+        type: ENTER_LETTER,
         payload: text
     }
 
 }
+
 
 export const restore = () => {
     

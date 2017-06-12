@@ -1,51 +1,33 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+
 //make this a dumb component and do the state rerendering in renderWord?
+
+// 6/8/17 yeah, probably make this a dumb component lolll
 
 
 
 class RenderSpaces extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
-        
-    }
-  };
-
-  checkLetter(){
-      
-      var temp = this.state.renderArray;
-      
-      for(var i = 0; i < this.state.correctArray.length; i++){
-          if(this.state.correctArray[i] === props.currentLetter){
-              temp[i] === props.currentLetter;
-              
-          }
-      }
-      
-      this.setState({renderArray: temp})
-      
-      return(
-        <h1>{this.props.emptyArr}</h1>
-      )
+    };
   }
-  
+
+
 
   render() {
     return (
       <div className = 'container3'>
         <h1>{this.props.emptyArr}</h1>
+        {console.log("why does this update " + this.props.emptyArr)}
+        {console.log(this.props.correctArr)}
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-    
-    const {currentLetter} = state.word;
-    return {currentLetter};
-
-};
 
 
-export default connect(mapStateToProps, {})(RenderSpaces);
+
+export default RenderSpaces;

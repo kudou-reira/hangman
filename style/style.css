@@ -15,7 +15,7 @@ body{
 }
 
 .container3{
-    margin-top: 7%;
+    margin-top: 10%;
     margin-left: 10%;
     margin-right: 10%;
     position: relative;
@@ -24,18 +24,33 @@ body{
 
 
 .gameTitle{
-    margin: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     text-align: center;
-    font-family: 'PT Sans', sans-serif;
-    font-size: 20px;
+    font-family: 'Lato', sans-serif;
+    font-size: 36px;
+}
+
+h2{
+    text-align: center;
 }
 
 h3{
     text-align: center;
 }
 
+h6{
+    font-size: 5px;
+}
+
+h7{
+    font-size: 11px;
+    font-style: italic;
+    font-weight: 300;
+}
+
 .btn{
-    background: #9E9E9E !important;
+    background: #898989 !important;
     color: #ffffff !important;
     cursor:pointer;
     font-size:1em;
@@ -45,7 +60,12 @@ h3{
 }
 
 .spaceOut{
-    margin-top: 3%
+    margin-top: 6%;
+}
+
+.leftFormat{
+    margin-top: 5%;
+    text-align: left;
 }
 
 

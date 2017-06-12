@@ -1,6 +1,11 @@
 import {
   A_CHANGE,
-  RESET
+  E_CHANGE,
+  O_CHANGE,
+  ENTER_LETTER,
+  RESET,
+  EMPTY_ARR,
+  CORRECT_ARR
 
 } from '../actions/types';
 
@@ -8,18 +13,26 @@ import {
 
 const INITIAL_STATE = {
 
-    currentLetter: ''
+    currentLetter: '',
+    emptyArr: [],
+    correctArr: []
 };
 
 export default (state = INITIAL_STATE, action) => {
 
     switch(action.type){
             
-      case A_CHANGE:
+      case ENTER_LETTER:
         return {...state, currentLetter: action.payload}
     
       case RESET:
         return INITIAL_STATE;
+            
+      case EMPTY_ARR:
+        return {...state, emptyArr: action.payload}
+    
+      case CORRECT_ARR:
+        return {...state, correctArr: action.payload}
       
       default:
         return state;
