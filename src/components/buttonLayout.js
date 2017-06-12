@@ -59,7 +59,8 @@ class ButtonLayout extends Component {
         definition: '',
         attributionText: '',
         winCon: false,
-        renderEmpty: true
+        renderEmpty: true,
+        giveUp: false
         
     }
 
@@ -163,7 +164,8 @@ class ButtonLayout extends Component {
                   yDisable: false,
                   zDisable: false,
                   winCon: false,
-                  renderEmpty: true
+                  renderEmpty: true,
+                  giveUp: false
               }
           );
           
@@ -436,7 +438,8 @@ class ButtonLayout extends Component {
           yDisable: true,
           zDisable: true,
           winCon: true,
-          renderEmpty: false
+          renderEmpty: false,
+          giveUp: true
       });
   }
 
@@ -478,7 +481,8 @@ class ButtonLayout extends Component {
           xDisable: true,
           yDisable: true,
           zDisable: true,
-          renderEmpty: false
+          renderEmpty: false,
+          giveUp: true
       });
   }
     
@@ -529,8 +533,8 @@ class ButtonLayout extends Component {
             </div>
             {this.state.renderEmpty ? <RenderSpaces emptyArr = {this.state.renderArray} correctArr = {this.state.correctArray} /> : null}
             <div className  = "spaceOut">
-                <Button style = {{width:140}} onClick = {this.fetchWord.bind(this)}>Play again?</Button>
-                <Button style = {{width:140}} onClick = {this.forceInitialWord.bind(this)}>Give Up?</Button>
+                <Button style = {{width:140}} onClick = {this.fetchWord.bind(this)}>Play again!</Button>
+                <Button style = {{width:140}} onClick = {this.forceInitialWord.bind(this)} disabled =             {this.state.giveUp}>Give Up?</Button>
             </div>
             
             <div className = 'container3'>
