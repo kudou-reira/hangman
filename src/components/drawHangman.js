@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Layer, Rect, Line, Stage, Group} from 'react-konva';
+import {Layer, Rect, Line, Circle, Stage, Group} from 'react-konva';
 
 class DrawHangman extends React.Component {
     
@@ -17,7 +17,7 @@ class DrawHangman extends React.Component {
             return(
                 <Layer>
                     <Line
-                        points = {[0, 325, 400, 325]}
+                        points = {[30, 325, 400, 325]}
                         stroke = {'red'}
                         strokeWidth = {3}
                         lineCap = {'round'}
@@ -39,7 +39,7 @@ class DrawHangman extends React.Component {
                         lineJoin = {'round'}
                     />
                     <Line
-                        points = {[30, 325, 30, 100]}
+                        points = {[30, 325, 30, 60]}
                         stroke = {'red'}
                         strokeWidth = {3}
                         lineCap = {'round'}
@@ -48,6 +48,363 @@ class DrawHangman extends React.Component {
                 </Layer>
             )
             
+        }
+        
+        else if(this.props.counter === 7){
+            return(
+                
+                <Layer>
+                    <Line
+                        points = {[30, 325, 400, 325]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Line
+                        points = {[30, 325, 30, 60]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Line
+                        points = {[30, 60, 245, 60]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                </Layer>
+            )
+        }
+        
+        else if(this.props.counter === 6){
+            return(
+                
+                <Layer>
+                    <Line
+                        points = {[30, 325, 400, 325]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Line
+                        points = {[30, 325, 30, 60]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Line
+                        points = {[30, 60, 230, 60]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Line
+                        points = {[230, 60, 230, 95]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                </Layer>
+            )
+            
+        }
+        
+        else if(this.props.counter === 5){
+            return(
+                
+                <Layer>
+                    <Line
+                        points = {[30, 325, 400, 325]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Line
+                        points = {[30, 325, 30, 60]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Line
+                        points = {[30, 60, 230, 60]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Line
+                        points = {[230, 60, 230, 95]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Circle
+                        x = {230}
+                        y = {115}
+                        radius = {20}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                    />
+                </Layer>
+            )
+        }
+        
+        else if(this.props.counter === 4){
+            return(
+                
+                <Layer>
+                    <Line
+                        points = {[30, 325, 400, 325]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Line
+                        points = {[30, 325, 30, 60]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Line
+                        points = {[30, 60, 230, 60]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Line
+                        points = {[230, 60, 230, 95]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Circle
+                        x = {230}
+                        y = {115}
+                        radius = {20}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                    />
+                    <Line
+                        points = {[230, 135, 230, 205]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                </Layer>
+            )
+        }
+        
+        else if(this.props.counter === 3){
+            return(
+                
+                <Layer>
+                    <Line
+                        points = {[30, 325, 400, 325]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Line
+                        points = {[30, 325, 30, 60]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Line
+                        points = {[30, 60, 230, 60]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Line
+                        points = {[230, 60, 230, 95]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Circle
+                        x = {230}
+                        y = {115}
+                        radius = {20}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                    />
+                    <Line
+                        points = {[230, 135, 230, 205]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                
+                    <Line
+                        points = {[200, 155, 260, 155]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                </Layer>
+            )
+        }
+        
+        else if(this.props.counter === 2){
+            return(
+                
+                <Layer>
+                    <Line
+                        points = {[30, 325, 400, 325]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Line
+                        points = {[30, 325, 30, 60]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Line
+                        points = {[30, 60, 230, 60]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Line
+                        points = {[230, 60, 230, 95]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Circle
+                        x = {230}
+                        y = {115}
+                        radius = {20}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                    />
+                    <Line
+                        points = {[230, 135, 230, 205]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                
+                    <Line
+                        points = {[200, 155, 260, 155]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                
+                    <Line
+                        points = {[230, 205, 205, 245]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                </Layer>
+            )
+        }
+        
+        else if(this.props.counter === 1){
+            return(
+                
+                <Layer>
+                    <Line
+                        points = {[30, 325, 400, 325]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Line
+                        points = {[30, 325, 30, 60]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Line
+                        points = {[30, 60, 230, 60]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Line
+                        points = {[230, 60, 230, 95]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                    <Circle
+                        x = {230}
+                        y = {115}
+                        radius = {20}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                    />
+                    <Line
+                        points = {[230, 135, 230, 205]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                
+                    <Line
+                        points = {[200, 155, 260, 155]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                
+                    <Line
+                        points = {[230, 205, 205, 245]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                
+                    <Line
+                        points = {[230, 205, 255, 245]}
+                        stroke = {'red'}
+                        strokeWidth = {3}
+                        lineCap = {'round'}
+                        lineJoin = {'round'}
+                    />
+                </Layer>
+            )
         }
         
     }

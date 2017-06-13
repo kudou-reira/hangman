@@ -410,37 +410,11 @@ class ButtonLayout extends Component {
     
   setWin(){
       this.setState({
-          counter: 0,
-          aDisable: true,
-          bDisable: true,
-          cDisable: true,
-          dDisable: true,
-          eDisable: true,
-          fDisable: true,
-          gDisable: true,
-          hDisable: true,
-          iDisable: true,
-          jDisable: true,
-          kDisable: true,
-          lDisable: true,
-          mDisable: true,
-          nDisable: true,
-          oDisable: true,
-          pDisable: true,
-          qDisable: true,
-          rDisable: true,
-          sDisable: true,
-          tDisable: true,
-          uDisable: true,
-          vDisable: true,
-          wDisable: true,
-          xDisable: true,
-          yDisable: true,
-          zDisable: true,
           winCon: true,
           renderEmpty: false,
           giveUp: true
       });
+      this.softReset();
   }
 
   winMessage(){
@@ -451,8 +425,8 @@ class ButtonLayout extends Component {
       }
   
   }
-    
-  forceInitialWord(){
+
+  softReset(){
       this.setState({
           counter: 0,
           aDisable: true,
@@ -480,10 +454,17 @@ class ButtonLayout extends Component {
           wDisable: true,
           xDisable: true,
           yDisable: true,
-          zDisable: true,
+          zDisable: true
+      });
+  }
+    
+  forceInitialWord(){
+      this.setState({
           renderEmpty: false,
           giveUp: true
       });
+      
+      this.softReset();
   }
     
   render() {
